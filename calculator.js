@@ -82,6 +82,8 @@ app.get('/exponent', (req, res) => {
   
     if (isNaN(num)) {
       return res.status(400).json({ error: 'Invalid input parameter' });
+    } else if (num < 0) {
+        return res.status(400).json({ error: 'That is invalid to inpur a negative number' });
     }
   
     const result = Math.sqrt(num);
@@ -96,7 +98,8 @@ app.get('/exponent', (req, res) => {
     if (isNaN(num1) || isNaN(num2)) {
       return res.status(400).json({ error: 'Invalid input parameters' });
     }
-  
+
+
     const result = num1 % num2;
     res.json({ result });
   });
